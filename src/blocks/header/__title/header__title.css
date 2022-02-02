@@ -1,0 +1,13 @@
+.header__title {
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 46px;
+  letter-spacing: 0.02em;
+  background: linear-gradient(91.33deg, #89A3FF 0%, #FF6060 54.17%, #FFBF00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  mix-blend-mode: normal;
+  border: solid green 1px;
+}

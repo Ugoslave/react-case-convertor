@@ -1,0 +1,13 @@
+.header__link {
+  text-decoration: none;
+  color: #fff;
+  transition: opacity .7s ease;
+  max-width: 150px;
+  max-height: 50px;
+  text-align: center;
+  border: solid 1px red;
+}
+
+.header__link:hover {
+  opacity: .6;
+}
