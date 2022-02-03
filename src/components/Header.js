@@ -1,5 +1,4 @@
 import logo from "../images/header-logo.png";
-import { Link } from "react-router-dom";
 
 function Header({ nav, textButton, username, onSignOut }) {
   return (

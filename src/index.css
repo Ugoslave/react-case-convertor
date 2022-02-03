@@ -9,6 +9,19 @@
 @import url('./blocks/header/__title/header__title.css');
 @import url('./blocks/header/__link/header__link.css');
 
+@import url('./blocks/main/main.css');
+
+@import url('./blocks/data-form/data-form.css');
+@import url('./blocks/data-form/__title/data-form__title.css');
+@import url('./blocks/data-form/__input/data-form__input.css');
+@import url('./blocks/data-form/__button/data-form__button.css');
+
+@import url('./blocks/buttons-container/buttons-container.css');
+@import url('./blocks/buttons-container/__button/buttons-container__button.css');
+
+@import url('./blocks/text-container/text-container.css');
+@import url('./blocks/text-container/__result/text-container__result.css');
+
 @import url('./blocks/footer/footer.css');
 @import url('./blocks/footer/__copyright/footer__copyright.css');
 

@@ -1,0 +1,25 @@
+.text-container {
+  margin: 0;
+  width: 700px;
+  min-height: 40px;
+  padding: 20px 0;
+  border-radius: 20px;
+  box-shadow: 0 0 20px gold;
+  border: solid 2px yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .page {
+    padding: 28px 19px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .page {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+}
