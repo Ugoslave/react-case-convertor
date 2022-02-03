@@ -6,8 +6,8 @@ import React from "react";
 function App() {
 
   const [isCardOpen, setIsCardOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(null);
 
+  
 
   return (
       <div className="page">
