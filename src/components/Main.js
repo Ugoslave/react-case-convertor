@@ -46,8 +46,15 @@ function Main({
 
     if (inputWord.endsWith("а")) {
       changedInputValue = inputWord.slice(0, -1) + "ы";
-    } else if (inputWord.endsWith("ро") || inputWord.endsWith("то") || inputWord.endsWith("оэ") || inputWord.endsWith("ни") || inputWord.endsWith("си")) {
-        changedInputValue = inputWord;
+    } else if (inputWord.endsWith("ро") || 
+               inputWord.endsWith("то") || 
+               inputWord.endsWith("оэ") || 
+               inputWord.endsWith("ни") || 
+               inputWord.endsWith("си") || 
+               inputWord.endsWith("ье") || 
+               inputWord.endsWith("ру") ||
+               inputWord.endsWith("рэ")) {
+                changedInputValue = inputWord;
     } else if (inputWord.endsWith("ок")) {
         changedInputValue = inputWord.slice(0, -2) + "ка";
     } else if (inputWord.endsWith("мя")) {
@@ -79,8 +86,15 @@ function Main({
 
     if (inputWord.endsWith("а")) {
       changedInputValue = inputWord.slice(0, -1) + "е";
-    } else if (inputWord.endsWith("ро") || inputWord.endsWith("то") || inputWord.endsWith("оэ") || inputWord.endsWith("ни") || inputWord.endsWith("си") || inputWord.endsWith("ье")) {
-        changedInputValue = inputWord;
+    } else if (inputWord.endsWith("ро") || 
+               inputWord.endsWith("то") || 
+               inputWord.endsWith("оэ") || 
+               inputWord.endsWith("ни") || 
+               inputWord.endsWith("си") || 
+               inputWord.endsWith("ье") || 
+               inputWord.endsWith("ру") ||
+               inputWord.endsWith("рэ")) {
+                 changedInputValue = inputWord;
     } else if (inputWord.endsWith("ок")) {
         changedInputValue = inputWord.slice(0, -2) + "ку";
     } else if (inputWord.endsWith("мя")) {
@@ -93,7 +107,7 @@ function Main({
         changedInputValue = inputWord + "ти"; 
     } else if (inputWord.endsWith("ия") || inputWord.endsWith("ь")) {
         changedInputValue = inputWord.slice(0, -1) + "и";
-    } else if (inputWord.endsWith("я") || inputWord.endsWith("ия") || inputWord.endsWith("ь")) {
+    } else if (inputWord.endsWith("я") || inputWord.endsWith("ь")) {
         changedInputValue = inputWord.slice(0, -1) + "е";
     } else if (inputWord.endsWith("вей")) {
         changedInputValue = inputWord.slice(0, -2) + "ью";
@@ -104,7 +118,40 @@ function Main({
     }
 
     setChangedWord(changedInputValue);
+  
   }
+
+  function handleAccuCaseClick() {
+    setIsButtonPut(true);
+
+    if (inputWord.endsWith("а")) {
+      changedInputValue = inputWord.slice(0, -1) + "у";
+    } else if (inputWord.endsWith("ро") || 
+               inputWord.endsWith("то") || 
+               inputWord.endsWith("оэ") || 
+               inputWord.endsWith("ни") || 
+               inputWord.endsWith("си") || 
+               inputWord.endsWith("ье") || 
+               inputWord.endsWith("ру") ||
+               inputWord.endsWith("рэ")) {
+        changedInputValue = inputWord;
+    } else if (inputWord.endsWith("ой")) {
+        changedInputValue = inputWord.slice(0, -1) + "го";
+    } else if (inputWord.endsWith("ий")) {
+        changedInputValue = inputWord.slice(0, -2) + "его";
+    } else if (inputWord.endsWith("я") || inputWord.endsWith("ия")) {
+        changedInputValue = inputWord.slice(0, -1) + "ю";
+    } else if (inputWord.endsWith("вей")) {
+        changedInputValue = inputWord.slice(0, -2) + "ья";
+    } else if (inputWord.endsWith("й")) {
+        changedInputValue = inputWord.slice(0, -1) + "я";
+    } else {
+      changedInputValue = inputWord;
+    }
+
+    setChangedWord(changedInputValue);
+  }
+
 
 
   return (
@@ -144,7 +191,7 @@ function Main({
         <div className="buttons-container">
           <button type="button" className="buttons-container__button" onClick={handleGenCaseClick}>Родительный падеж</button>
           <button type="button" className="buttons-container__button" onClick={handleDatCaseClick}>Дательный падеж</button>
-          <button type="button" className="buttons-container__button">Винительный падеж</button>
+          <button type="button" className="buttons-container__button" onClick={handleAccuCaseClick}>Винительный падеж</button>
           <button type="button" className="buttons-container__button">Творительный падеж</button>
           <button type="button" className="buttons-container__button">Предложный падеж</button>
         </div>
