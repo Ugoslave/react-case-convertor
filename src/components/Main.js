@@ -169,6 +169,8 @@ function Main({
       changedInputValue = inputWord.slice(0, -1) + "ой";
     } else if (inputWord.endsWith("ое") || inputWord.endsWith("вой")) {
       changedInputValue = inputWord.slice(0, -2) + "ым";
+    } else if (inputWord.includes("король") || inputWord.includes("тюль") || inputWord.includes("соболь") || inputWord.endsWith("ие") || inputWord.endsWith("й") || inputWord.endsWith("бль")) {
+      changedInputValue = inputWord.slice(0, -1) + "ем";
     } else if (inputWord.endsWith("ро") || 
                inputWord.endsWith("то") || 
                inputWord.endsWith("оэ") || 
@@ -187,8 +189,6 @@ function Main({
         changedInputValue = inputWord.slice(0, -2) + "им";
     } else if (inputWord.endsWith("вей")) {
         changedInputValue = inputWord.slice(0, -2) + "ьем";
-    } else if (inputWord.includes("король") || inputWord.includes("тюль") || inputWord.includes("соболь") || inputWord.endsWith("ие") || inputWord.endsWith("й") || inputWord.endsWith("бль")) {
-        changedInputValue = inputWord.slice(0, -1) + "ем";
     } else if (inputWord.includes("дитя")) {
         changedInputValue = inputWord + "тей"; 
     } else if (inputWord.endsWith("я") || inputWord.endsWith("ия")) {
@@ -205,6 +205,46 @@ function Main({
   }
 
 
+
+  function handlePreposCaseClick() {
+    setIsButtonPut(true);
+
+    
+
+    if (inputWord.endsWith("ое") || inputWord.endsWith("вой")) {
+      changedInputValue = inputWord.slice(0, -2) + "ом";
+    } else if (inputWord.endsWith("вей")) {
+        changedInputValue = inputWord.slice(0, -2) + "ье";
+    } else if (inputWord.includes("дитя")) {
+        changedInputValue = inputWord + "ти"; 
+    } else if (inputWord.endsWith("ший") || inputWord.endsWith("щий") || inputWord.endsWith("чий")) {
+        changedInputValue = inputWord.slice(0, -2) + "ем";
+    } else if (inputWord.endsWith("ие") || inputWord.endsWith("ия")) {
+        changedInputValue = inputWord.slice(0, -1) + "и";
+    } else if (inputWord.endsWith("мя")) {
+        changedInputValue = inputWord.slice(0, -1) + "ени";
+    } else if (inputWord.includes("король") || inputWord.includes("тюль") || inputWord.includes("соболь") || inputWord.endsWith("й") || inputWord.endsWith("бль") || inputWord.endsWith("а") || inputWord.endsWith("я") || inputWord.endsWith("о")) {
+        changedInputValue = inputWord.slice(0, -1) + "е";
+    } else if (inputWord.endsWith("ро") || 
+               inputWord.endsWith("то") || 
+               inputWord.endsWith("оэ") || 
+               inputWord.endsWith("ни") || 
+               inputWord.endsWith("си") || 
+               inputWord.endsWith("ье") || 
+               inputWord.endsWith("ру") ||
+               inputWord.endsWith("е")  ||
+               inputWord.endsWith("рэ")) {
+                changedInputValue = inputWord;
+    } else if (inputWord.endsWith("ь")) {
+        changedInputValue = inputWord.slice(0, -1) + "и";
+    } else if (inputWord.endsWith("ок")) {
+        changedInputValue = inputWord.slice(0, -2) + "ке";
+    } else {
+        changedInputValue = inputWord + "е";
+    } 
+
+    setChangedWord(changedInputValue);
+  }
 
   return (
       <section className="main">
@@ -245,7 +285,7 @@ function Main({
           <button type="button" className="buttons-container__button" onClick={handleDatCaseClick}>Дательный падеж</button>
           <button type="button" className="buttons-container__button" onClick={handleAccuCaseClick}>Винительный падеж</button>
           <button type="button" className="buttons-container__button" onClick={handleCreateCaseClick}>Творительный падеж</button>
-          <button type="button" className="buttons-container__button">Предложный падеж</button>
+          <button type="button" className="buttons-container__button" onClick={handlePreposCaseClick}>Предложный падеж</button>
         </div>
         <div className="text-container">
           <p className="text-container__result">{isButtonPut ? changedWord : ""}</p>
