@@ -1,5 +1,5 @@
 .page {
-  max-width: 880px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 45px 200px 0;
   font-family: 'Inter', 'Arial', sans-serif;
@@ -11,22 +11,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-
   background-image: url(../../images/project-area-background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .page {
-    padding: 28px 19px 0;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .page {
-    padding-right: 100px;
-    padding-left: 100px;
-  }
 }

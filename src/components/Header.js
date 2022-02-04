@@ -1,14 +1,20 @@
 import logo from "../images/header-logo.png";
 
-function Header({ nav, textButton, username, onSignOut }) {
+function Header(props) {
   return (
     <header className="header">
-      <img src={logo} alt="App-logo" className="header__logo" />
-      <p className="header__title">Case Convertor</p>
+      <img 
+        src={logo} 
+        alt="App-logo" 
+        className="header__logo" 
+      />
+      <p className="header__title">
+        {props.title}
+      </p>
       <a href="https://russkiiyazyk.ru/chasti-rechi/sushhestvitelnoe/tipyi-skloneniya-imen-sushhestvitelnyih.html" 
          lang="en" 
          className="header__link">
-           Общие правила склонения
+           {props.textLink}
       </a>
     </header>
   );
