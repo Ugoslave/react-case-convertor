@@ -10,6 +10,12 @@ function Main({
   const [inputWord, setInputWord] = React.useState("");
   const [isError, setIsError] = React.useState(false);
   const [isButtonPut, setIsButtonPut] = React.useState(false);
+  const [changedWord, setChangedWord] = React.useState("");
+
+  
+
+  let changedInputValue;
+
 
   function handleInputChange(evt) {
     //Проверить регулярное выражение!//
@@ -36,36 +42,70 @@ function Main({
   function handleGenCaseClick() {
     setIsButtonPut(true);
 
-    let changedInputValue;
+    
 
     if (inputWord.endsWith("а")) {
       changedInputValue = inputWord.slice(0, -1) + "ы";
     } else if (inputWord.endsWith("ро") || inputWord.endsWith("то") || inputWord.endsWith("оэ") || inputWord.endsWith("ни") || inputWord.endsWith("си")) {
-      changedInputValue = inputWord;
+        changedInputValue = inputWord;
     } else if (inputWord.endsWith("ок")) {
-      changedInputValue = inputWord.slice(0, -2) + "ка";
+        changedInputValue = inputWord.slice(0, -2) + "ка";
     } else if (inputWord.endsWith("мя")) {
-      changedInputValue = inputWord.slice(0, -1) + "ени";
+        changedInputValue = inputWord.slice(0, -1) + "ени";
     } else if (inputWord.endsWith("ий")) {
-      changedInputValue = inputWord.slice(0, -2) + "его";
+        changedInputValue = inputWord.slice(0, -2) + "его";
     } else if (inputWord.endsWith("ое") || inputWord.endsWith("ой")) {
-      changedInputValue = inputWord.slice(0, -2) + "ого";
+        changedInputValue = inputWord.slice(0, -2) + "ого";
     } else if (inputWord.includes("дитя")) {
-      changedInputValue = inputWord + "ти"; 
+        changedInputValue = inputWord + "ти"; 
     } else if (inputWord.endsWith("я") || inputWord.endsWith("ия") || inputWord.endsWith("ь")) {
-      changedInputValue = inputWord.slice(0, -1) + "и";
-    } else if (inputWord.endsWith("ей")) {
-      changedInputValue = inputWord.slice(0, -2) + "ья";
+        changedInputValue = inputWord.slice(0, -1) + "и";
+    } else if (inputWord.endsWith("вей")) {
+        changedInputValue = inputWord.slice(0, -2) + "ья";
     } else if (inputWord.endsWith("й") || inputWord.endsWith("е")) {
-      changedInputValue = inputWord.slice(0, -1) + "я";
+        changedInputValue = inputWord.slice(0, -1) + "я";
     } else if (inputWord.endsWith("о") || inputWord.endsWith("ще")) {
-      changedInputValue = inputWord.slice(0, -1) + "а";
+        changedInputValue = inputWord.slice(0, -1) + "а";
     } else {
-      changedInputValue = inputWord + "а";
+        changedInputValue = inputWord + "а";
     } 
 
-    setInputWord(changedInputValue);
+    setChangedWord(changedInputValue);
   }
+
+
+  function handleDatCaseClick() {
+    setIsButtonPut(true);
+
+    if (inputWord.endsWith("а")) {
+      changedInputValue = inputWord.slice(0, -1) + "е";
+    } else if (inputWord.endsWith("ро") || inputWord.endsWith("то") || inputWord.endsWith("оэ") || inputWord.endsWith("ни") || inputWord.endsWith("си") || inputWord.endsWith("ье")) {
+        changedInputValue = inputWord;
+    } else if (inputWord.endsWith("ок")) {
+        changedInputValue = inputWord.slice(0, -2) + "ку";
+    } else if (inputWord.endsWith("мя")) {
+        changedInputValue = inputWord.slice(0, -1) + "ени";
+    } else if (inputWord.endsWith("ий")) {
+        changedInputValue = inputWord.slice(0, -2) + "ему";
+    } else if (inputWord.endsWith("ое") || inputWord.endsWith("ой")) {
+        changedInputValue = inputWord.slice(0, -2) + "ому";
+    } else if (inputWord.includes("дитя")) {
+        changedInputValue = inputWord + "ти"; 
+    } else if (inputWord.endsWith("ия") || inputWord.endsWith("ь")) {
+        changedInputValue = inputWord.slice(0, -1) + "и";
+    } else if (inputWord.endsWith("я") || inputWord.endsWith("ия") || inputWord.endsWith("ь")) {
+        changedInputValue = inputWord.slice(0, -1) + "е";
+    } else if (inputWord.endsWith("вей")) {
+        changedInputValue = inputWord.slice(0, -2) + "ью";
+    } else if (inputWord.endsWith("й") || inputWord.endsWith("е")) {
+        changedInputValue = inputWord.slice(0, -1) + "ю";
+    } else {
+      changedInputValue = inputWord + "у";
+    }
+
+    setChangedWord(changedInputValue);
+  }
+
 
   return (
       <section className="main">
@@ -103,13 +143,13 @@ function Main({
 
         <div className="buttons-container">
           <button type="button" className="buttons-container__button" onClick={handleGenCaseClick}>Родительный падеж</button>
-          <button type="button" className="buttons-container__button">Дательный падеж</button>
+          <button type="button" className="buttons-container__button" onClick={handleDatCaseClick}>Дательный падеж</button>
           <button type="button" className="buttons-container__button">Винительный падеж</button>
           <button type="button" className="buttons-container__button">Творительный падеж</button>
           <button type="button" className="buttons-container__button">Предложный падеж</button>
         </div>
         <div className="text-container">
-          <p className="text-container__result">{isButtonPut ? inputWord : ""}</p>
+          <p className="text-container__result">{isButtonPut ? changedWord : ""}</p>
         </div>
       </section>
   );
