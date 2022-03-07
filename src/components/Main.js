@@ -12,9 +12,9 @@ function Main() {
     const inputValue = evt.target.value;
     const regExp = /[а-яё]/ig;
     const checkInputValue = regExp.test(inputValue);
-
+    
     setIsError(false);
-    setChangedWord("")
+    setChangedWord("");
     
     if (checkInputValue) {
       setInputWord(inputValue);
