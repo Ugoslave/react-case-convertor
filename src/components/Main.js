@@ -29,45 +29,116 @@ function Main() {
     setChangedWord("");
   }
 
-  function handleGenCaseClick() {
-    if (inputWord.endsWith("а")) {
-      changedInputValue = inputWord.slice(0, -1) + "ы";
-    } else if (inputWord.endsWith("ро") || 
-               inputWord.endsWith("то") || 
-               inputWord.endsWith("оэ") || 
-               inputWord.endsWith("ни") || 
-               inputWord.endsWith("си") || 
-               inputWord.endsWith("ье") || 
-               inputWord.endsWith("ру") ||
-               inputWord.endsWith("рэ")) {
-                changedInputValue = inputWord;
-    } else if (inputWord.endsWith("ок")) {
-        changedInputValue = inputWord.slice(0, -2) + "ка";
-    } else if (inputWord.endsWith("мя")) {
-        changedInputValue = inputWord.slice(0, -1) + "ени";
-    } else if (inputWord.endsWith("ая")) {
-        changedInputValue = inputWord.slice(0, -2) + "ой";
-    } else if (inputWord.endsWith("ий")) {
-        changedInputValue = inputWord.slice(0, -2) + "его";
-    } else if (inputWord.endsWith("ое") || inputWord.endsWith("ой")) {
-        changedInputValue = inputWord.slice(0, -2) + "ого";
-    } else if (inputWord.includes("дитя")) {
-        changedInputValue = inputWord + "ти"; 
-    } else if (inputWord.endsWith("я") || 
-               inputWord.endsWith("ия") || 
-               inputWord.endsWith("ь")) {
-                 changedInputValue = inputWord.slice(0, -1) + "и";
-    } else if (inputWord.endsWith("вей")) {
-        changedInputValue = inputWord.slice(0, -2) + "ья";
-    } else if (inputWord.endsWith("о") || inputWord.endsWith("ще")) {
-        changedInputValue = inputWord.slice(0, -1) + "а";
-    } else if (inputWord.endsWith("й") || inputWord.endsWith("е")) {
-        changedInputValue = inputWord.slice(0, -1) + "я";
-    } else {
-        changedInputValue = inputWord + "а";
-    } 
 
-    setChangedWord(changedInputValue);
+
+const obj = {
+  'а': {
+    value: -1,
+    change: 'ы',
+  },
+  'ро': {
+    value: 0,
+  },
+  'то': {
+    value: 0,
+  },
+  'оэ': {
+    value: 0,
+  },
+  'ни': {
+    value: 0,
+  },
+  'си': {
+    value: 0,
+  },
+  'ье': {
+    value: 0,
+  },
+  'ру': {
+    value: 0,
+  },
+  'рэ': {
+    value: 0,
+  },
+  'ок': {
+    value: -2,
+    change: 'ка',
+  },
+  'мя': {
+    value: -1,
+    change: 'ени',
+  },
+  'ая': {
+    value: -2,
+    change: 'ой',
+  },
+  'ий': {
+    value: -2,
+    change: 'его',
+  },
+  'ое': {
+    value: -2,
+    change: 'ого',
+  },
+  'ой': {
+    value: -2,
+    change: 'ого',
+  },
+  'дитя': {
+    value: -1,
+    change: 'яти',
+  },
+  'я': {
+    value: -1,
+    change: 'и',
+  },
+  'ия': {
+    value: -1,
+    change: 'и',
+  },
+  'ь': {
+    value: -1,
+    change: 'и',
+  },
+  'вей': {
+    value: -2,
+    change: 'ья',
+  },
+  'о': {
+    value: -1,
+    change: 'ы',
+  },
+  'ще': {
+    value: -1,
+    change: 'а',
+  },
+  'й': {
+    value: -1,
+    change: 'я',
+  },
+  'е': {
+    value: -1,
+    change: 'я',
+  },
+}
+
+
+const checkAndReplaceEnd = (end) => {
+  const arrKeys = Object.keys(end);
+
+  for (let i of arrKeys) {
+    if (inputWord.endsWith(i)) {
+      return (inputWord.slice(0, end[i].value) + (end[i].value ? end[i].change : inputWord));
+    }
+  }
+}
+
+
+
+  function handleGenCaseClick() {
+    changedInputValue = checkAndReplaceEnd(obj);
+
+    setChangedWord(changedInputValue ? changedInputValue : inputWord + 'а');
   }
 
   function handleDatCaseClick() {
