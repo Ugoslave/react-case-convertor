@@ -2,21 +2,21 @@ import React from "react";
 
 import DataForm from "./DataForm";
 import Button from "./Button";
+
 import genCaseObj from "../constants/GenCaseObject";
 import datCaseObj from "../constants/DatCaseObject";
 import accuCaseObj from "../constants/AccuCaseObject";
 import createCaseObj from "../constants/CreateCaseObject";
 import preposCaseObj from "../constants/PreposCaseObject";
 
-
-
-function Main() {
+const Main = () => {
   const [inputWord, setInputWord] = React.useState("");
   const [isError, setIsError] = React.useState(false);
   const [changedWord, setChangedWord] = React.useState("");
-  let changedInputValue;
 
-  function handleInputChange(evt) {
+  let changedInputValue; // объявляется переменная для хранения измененного слова
+
+  const handleInputChange = (evt) => {
     const inputValue = evt.target.value;
     const regExp = /[а-яё]/ig;
     const checkInputValue = regExp.test(inputValue);
@@ -31,23 +31,21 @@ function Main() {
     }
   }
 
-  function handleResetClick() {
+  const handleResetClick = () => {
     setInputWord("");
     setIsError(false);
     setChangedWord("");
   }
 
+  const checkAndReplaceEnd = (end) => {
+    const arrKeys = Object.keys(end);
 
-const checkAndReplaceEnd = (end) => {
-  const arrKeys = Object.keys(end);
-
-  for (let i of arrKeys) {
-    if (inputWord.endsWith(i)) {
-      return (inputWord.slice(0, end[i].value) + (end[i].value ? end[i].change : inputWord));
+    for (let i of arrKeys) {
+      if (inputWord.endsWith(i)) {
+        return (inputWord.slice(0, end[i].value) + (end[i].value ? end[i].change : inputWord));
+      }
     }
   }
-}
-
 
   function handleGenCaseClick() {
     changedInputValue = checkAndReplaceEnd(genCaseObj);
