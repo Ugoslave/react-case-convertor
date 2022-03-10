@@ -1,31 +1,31 @@
-function DataForm(props) {
+const DataForm = ({ title, name, placeholder, isError, value, onChange, textError, onClick, textButton }) => {
   return (
     <form className="data-form">
       <p className="data-form__title">
-        {props.title}
+        {title}
       </p>
       <input 
         required
         type="text"
-        name={props.name} 
+        name={name} 
         minLength="2" 
         maxLength="50" 
-        placeholder={props.placeholder} 
-        className={props.isError ? "data-form__input data-form__input_error-state" : "data-form__input"}
-        value={props.value}
-        onChange={props.onChange}
+        placeholder={placeholder} 
+        className={isError ? "data-form__input data-form__input_error-state" : "data-form__input"}
+        value={value}
+        onChange={onChange}
       />
       <span 
         id="initial-word-error" 
-        className={props.isError ? "data-form__input-error data-form__input-error_active" : "data-form__input-error"}>
-          {props.textError}
+        className={isError ? "data-form__input-error data-form__input-error_active" : "data-form__input-error"}>
+          {textError}
       </span>
       <button 
         type="reset" 
         className="data-form__button" 
-        onClick={props.onClick}
+        onClick={onClick}
       >
-        {props.textButton}
+        {textButton}
       </button>
     </form>
   );

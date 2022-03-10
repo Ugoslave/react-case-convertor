@@ -1,4 +1,4 @@
-function Button({ onClick, caseObj, ending, textButton }) {
+const Button = ({ onClick, caseObj, ending, textButton }) => {
   const handleClick = () => {
     onClick(caseObj, ending);
   }

@@ -1,6 +1,6 @@
 import logo from "../images/header-logo.png";
 
-function Header(props) {
+const Header = ({ title, textLink }) => {
   return (
     <header className="header">
       <img 
@@ -9,12 +9,12 @@ function Header(props) {
         className="header__logo" 
       />
       <p className="header__title">
-        {props.title}
+        {title}
       </p>
       <a href="https://russkiiyazyk.ru/chasti-rechi/sushhestvitelnoe/tipyi-skloneniya-imen-sushhestvitelnyih.html" 
          lang="en" 
          className="header__link">
-           {props.textLink}
+           {textLink}
       </a>
     </header>
   );

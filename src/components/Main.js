@@ -47,7 +47,7 @@ const Main = () => {
     }
   }
 
-  function handleCaseBtnClick (caseObj, ending) {
+  const handleCaseBtnClick = (caseObj, ending) => {
     changedInputValue = checkAndReplaceEnd(caseObj);
     setChangedWord(changedInputValue ? changedInputValue : inputWord + ending);
   }
