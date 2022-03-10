@@ -1,4 +1,8 @@
 const datCaseObj = {
+  'бро': {
+    value: -1,
+    change: 'у',
+  },
   'ро': {
     value: 0,
   },

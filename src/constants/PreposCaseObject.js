@@ -1,4 +1,8 @@
 const preposCaseObj = {
+  'бро': {
+    value: -1,
+    change: 'е',
+  },
   'ро': {
     value: 0,
   },

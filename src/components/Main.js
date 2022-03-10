@@ -47,29 +47,9 @@ const Main = () => {
     }
   }
 
-  function handleGenCaseClick() {
-    changedInputValue = checkAndReplaceEnd(genCaseObj);
-    setChangedWord(changedInputValue ? changedInputValue : inputWord + 'а');
-  }
-
-  function handleDatCaseClick() {
-    changedInputValue = checkAndReplaceEnd(datCaseObj);
-    setChangedWord(changedInputValue ? changedInputValue : inputWord + 'у');
-  }
-
-  function handleAccuCaseClick() {
-    changedInputValue = checkAndReplaceEnd(accuCaseObj);
-    setChangedWord(changedInputValue ? changedInputValue : inputWord);
-  }
-
-  function handleCreateCaseClick() {
-    changedInputValue = checkAndReplaceEnd(createCaseObj);
-    setChangedWord(changedInputValue ? changedInputValue : inputWord + 'ом');
-  }
-
-  function handlePreposCaseClick() {
-    changedInputValue = checkAndReplaceEnd(preposCaseObj);
-    setChangedWord(changedInputValue ? changedInputValue : inputWord + 'е');
+  function handleCaseBtnClick (caseObj, ending) {
+    changedInputValue = checkAndReplaceEnd(caseObj);
+    setChangedWord(changedInputValue ? changedInputValue : inputWord + ending);
   }
 
   return (
@@ -86,24 +66,34 @@ const Main = () => {
         placeholder = "Например: разработчик" 
       />
     <div className="buttons-container">
-      <Button 
-        onClick={handleGenCaseClick} 
+      <Button  
+        caseObj={genCaseObj} 
+        ending="а" 
+        onClick={handleCaseBtnClick} 
         textButton="Родительный падеж"
       />
       <Button 
-        onClick={handleDatCaseClick} 
+        caseObj={datCaseObj} 
+        ending="у" 
+        onClick={handleCaseBtnClick} 
         textButton="Дательный падеж"
       />
       <Button 
-        onClick={handleAccuCaseClick} 
+        caseObj={accuCaseObj} 
+        ending="" 
+        onClick={handleCaseBtnClick} 
         textButton="Винительный падеж"
       />
       <Button 
-        onClick={handleCreateCaseClick} 
+        caseObj={createCaseObj} 
+        ending="ом" 
+        onClick={handleCaseBtnClick} 
         textButton="Творительный падеж"
       />
       <Button 
-        onClick={handlePreposCaseClick} 
+        caseObj={preposCaseObj} 
+        ending="е" 
+        onClick={handleCaseBtnClick} 
         textButton="Предложный падеж"
       />
     </div>

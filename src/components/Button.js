@@ -1,11 +1,15 @@
-function Button(props) {
+function Button({ onClick, caseObj, ending, textButton }) {
+  const handleClick = () => {
+    onClick(caseObj, ending);
+  }
+
   return (
     <button 
       type="button" 
       className="buttons-container__button" 
-      onClick={props.onClick}
+      onClick={handleClick}
     >
-      {props.textButton}
+      {textButton}
     </button>
   );
 }

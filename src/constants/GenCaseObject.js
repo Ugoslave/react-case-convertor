@@ -7,6 +7,10 @@ const genCaseObj = {
     value: -1,
     change: 'ы',
   },
+  'бро': {
+    value: -1,
+    change: 'а',
+  },
   'ро': {
     value: 0,
   },

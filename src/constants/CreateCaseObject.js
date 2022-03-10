@@ -1,4 +1,8 @@
 const createCaseObj = {
+  'бро': {
+    value: -1,
+    change: 'ом',
+  },
   'ро': {
     value: 0,
   },
